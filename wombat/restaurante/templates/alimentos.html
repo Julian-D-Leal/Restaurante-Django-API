@@ -1,0 +1,31 @@
+{% extends 'index.html'%}
+
+{% block b%}
+
+<section  class="slider-area"> 
+    <div class="slide-content-wrapper text-center"> 
+        <div class="slider-content-area">  
+            <a  style="margin-bottom: 50px" class="w3-button w3-block w3-salmon" href="{% url 'crear'%}">Crear Ingrediente</a>      
+            <h1 style="padding-bottom: 30px;">Alimentos</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Nombre</th>
+                        <th style="text-align: center;"> Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in al %}
+                        <tr>
+                            <td> {{ a.nombre }}</td>
+                            <td> {{ a.categoria }}</td>
+                            <td><a class="w3-button w3-block w3-salmon" href="{% url 'edit' id=a.id%}">Editar</a></td>
+                            <td><a class="w3-button w3-block w3-salmon" href="{% url 'delete' id=a.id%}">Eliminar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>    
+    </div>
+</section>
+{%endblock%}
